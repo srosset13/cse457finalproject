@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CSE457 - Final Project: California Wildfires and Prescribed Burns</title>
+	<!-- Load Google Font -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto:100,400,300,400italic,700' rel='stylesheet' type='text/css'>
+
+	<!-- CSS libraries -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/fontawesome.min.css">
+
+	<!-- Custom CSS code -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				
+				<h1>CSE457 - Final Project Proposal</h1>
+				
+				<h2>Basic Info</h2>
+				<p>Project title: California Fires and Resulting Burned Areas</p>
+				<p>Sophia Rosset | srosset@wustl.edu | 464319</p>
+				<p>Katie Steinmeyer | ksteinmeyer@wustl.edu | 464398</p>
+				<p>Link to project repo: </p>
+				<a href="url">https://github.com/srosset13/cse457finalproject</a>
+
+				<h2>Background and Motivation</h2>
+				<p>
+					We chose to focus on California forest fires and the resulting burned areas because one of us took a class on natural disasters last semester, and became interested in the ways these disasters spread and affect surrounding land. Particularly in the state of California, wildfires are extremely prominent. We wanted to use this project as an opportunity to display how these fires have affected land in the state throughout the past century. 
+					We both also made it a priority to incorporate a map into our final visualization. We enjoy the way geospatial data conveys information into an absorbable format that might otherwise be hard to understand. Additionally, natural disaster data translates particularly well to a map-style visualization.
+				</p>
+
+				<h2>Project Objectives</h2>
+				<p>
+					Through our visualization we would like to show the progression of fires in California over time. There are two main aspects of the fires we want to show: the changing wildfires over time and the relationship between prescribed burns and wildfires.
+					Showing how the fires have changed both in size, location, and intensity would educate viewers on the severity of the California fire problem. Additionally we would like to show the causes of the fires so that could be linked to the fire (the causes are included in our dataset). 
+					Lastly if possible we would like to show the relationship between prescribed burns (fires set on purpose) and wildfires that end up out of control. Do prescribed burns reduce wildfires or do they run out of control and cause wildfires?
+				</p>
+
+				<h2>Data</h2>
+				<p>California fire data sets: </p>
+				<a href="url">https://gis.data.ca.gov/datasets/CALFIRE-Forestry::california-fire-perimeters-all/about</a>
+				<a href="url">https://gis.data.ca.gov/datasets/CALFIRE-Forestry::prescribed-burns/about</a>
+				<p>Both datasets are available in geojson formats. </p>
+				
+				<h2>Data Processing</h2>
+				<p>
+					We will need an enum for the fire causes from the fire-perimeters dataset to map the causes onto in order to display them.
+					We will need to create a geopath. 
+				</p>
+
+				<h2>Visualization Design</h2>
+				<p>
+					Idea #1: Map will show the wildfires and prescribed fires. 
+					We will use heat mapping to display each fire; red will correspond to wildfires, blue will correspond to prescribed fires. We chose red and blue so that a purple color can be shown to represent the prescribed fires that transition into wildfires, as is often the case. 
+					This visualization will also include the topographic information by overlaying the topography of the state of California onto the map. This may be useful in identifying the correlation between higher and lower elevations and mountainous areas with fires in California. 
+				</p>
+				<img src="images/idea-1.jpeg" alt="img one" width="300" height="400">
+				<p>
+					Idea #2: Map will show circles based on the geographical location of the fires (both wild and prescribed). 
+					Larger circles will represent fires with a greater magnitude. There are several possible causes for wildfires-- upon hovering over a circle, a tooltip will appear, displaying the cause of the wildfire. 
+					This design will also include a selection bar in which the user can filter which wildfires are displayed on the map based on their causes. There will be a default “all” option here so that all wildfires are displayed initially. 
+				</p>
+				<img src="images/idea-2.jpeg" alt="img one" width="300" height="400">
+
+				<p>
+					Idea #3: Map will show the wildfires and prescribed fires using the heatmap and color system described above (red for wildfires, blue for prescribed fires, purple for prescribed fires that become wild). 
+					This visualization will also include a timeline in which the viewer can drag a selector back and forth to see how the fires have moved throughout the state. 
+					Based on our data, the timeline will go from 1915 to 2021. 
+				</p>
+				<img src="images/idea-3.jpeg" alt="img one" width="300" height="400">
+
+				<p>
+					Final Design: 
+					We have decided our final design will use a heat map if possible to represent the fires so that we can effectively transition from prescribed burns to wildfires if needed. 
+					We will use red to illustrate wildfires and blue to show prescribed burns. 
+					Ideally in cases where prescribed burns turn into wildfires we will show a transition from blue to red. 
+					We will play a video of the fires showing how they have changed over time (starting with the beginning of our dataset and ending at present day). 
+					We will also allow users to revisit moments in time by manually moving the slider. We will have a tooltip that allows users to hover over a wildfire center to see the cause of the fire. 
+					Additionally, users can sort by the types of wildfires they want to see by checking boxes representing each cause of fires or only clicking see all. Lastly, we will have different types of maps a user can view in order to see other relationships between fires and city centers (shown using a roadmap projection) or between fires and topography (shown using a topographic projection). 					
+				</p>
+				<img src="images/final-design.jpeg" alt="img one" width="300" height="400">
+
+				<p>
+					Some of the features described above are reaches (the final design will likely not be as robust as the description). 
+					Our final design will include the must-have features below and ideally a few optional features. 
+				</p>
+				<h2>Must-have Features</h2>
+				<p>
+					Way to show wildfires
+					Way to show prescribed burns
+					Tooltip for hovering over wildfires to see the cause and additional information about the fire
+					Way to show change over time (either video timeline or allowing users to select a certain year)					
+				</p>
+				<h2>Optional Features</h2>
+				<p>
+					Transition from prescribed fires to wildfires
+					Sorting by wildfire cause
+					Different types of map projections (roadmaps and topographic maps)
+					Additional method of viewing time (either video or selecting year depending on how we decide to do our primary time display)
+				</p>
+
+				<h2>Project Schedule</h2>
+				<p>Proposal: 11/1</p>
+
+				<p>Milestone 1: 11/8</p>
+				<ul>
+					<li>Display wildfires on map</li>
+					<li>Show tooltip</li>
+					<li>Show timeline and play data over time</li>
+				</ul>
+
+				<p>Milestone 2: 11/22</p>
+				<ul>
+					<li>Display prescribed burns</li>
+					<li>Cause sorting for wildfires</li>
+					<li>Transition from burns to wildfires</li>
+				</ul>
+
+				<p>Final project: 12/10</p>
+				<ul>
+					<li>User tested and adjusted</li>
+					<li>Bug free</li>
+					<li>Transition from burns to wildfires</li>
+				</ul>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Load JS libraries -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="https://d3js.org/d3.v6.js"></script>
+
+	<!-- Load data, create visualizations -->
+	<script type="module" src="js/main.js"></script>
+	<script data-main="js/main" src="js/require.js"></script>
+</body>
+</html>
